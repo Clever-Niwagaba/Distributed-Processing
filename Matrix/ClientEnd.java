@@ -5,19 +5,19 @@ import java.util.Arrays;
 
 public class ClientEnd {
     static int [][] Result;
-    static int [][] Matrix1;
-    static int [][] Matrix2;
+    static int [][] Mat1;
+    static int [][] Mat2;
     public static void main(String[] args) throws InterruptedException {
 
-        Matrix1 = new int[][]{{5,65,16},{5,12,56},{12,36,56},{20,35,10}};
-        Matrix2 = new int[][]{{8,23,52},{6,23,11},{12,36,6},{5,2,36}};
+        Mat1 = new int[][]{{5,65,16},{5,12,56},{12,36,56},{20,35,10}};
+        Mat2 = new int[][]{{8,23,52},{6,23,11},{12,36,6},{5,2,36}};
         System.out.println("Establishing Connections....");
 
         // Send out to multiple different servers to multiply matrix
         MessagePassClient client1 = new MessagePassClient("localhost",2004, Matrix1[0], Matrix2, 0, Result);
-        MessagePassClient client2 = new MessagePassClient("",5001, Matrix1[1], Matrix2, 1, Result);
-        MessagePassClient client3 = new MessagePassClient("",5002, Matrix1[2], Matrix2, 2, Result);
-        MessagePassClient client4 = new MessagePassClient("",5003, Matrix1[3], Matrix2, 3, Result);
+        MessagePassClient client2 = new MessagePassClient("",5001, Mat1[1], Mat2, 1, Result);
+        MessagePassClient client3 = new MessagePassClient("",5002, Mat1[2], Mat2, 2, Result);
+        MessagePassClient client4 = new MessagePassClient("",5003, Mat1[3], Mat2, 3, Result);
 
         Thread t1 = new Thread(new Runnable() {
             @Override
